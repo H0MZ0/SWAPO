@@ -35,9 +35,32 @@ int	get_max(t_stack *stack)
 	return (index);
 }
 
+int	get_min(t_stack *stack)
+{
+	int min;
+	int	index;
+	int i;
+
+	i = 0;
+	min = stack->content;
+	index = 0;
+	stack = (stack->next);
+	while (stack)
+	{
+		if (stack->content < min)
+		{
+			min = stack->content;
+			index = i;
+		}
+		stack = stack->next;
+		i++;
+	}
+	return (index);
+}
+
 void	last_sort(t_stack	**stack_a, t_stack	**stack_b)
 {
-	printf("stack_b\n");
+	// printf("stack_b\n");
 	// ft_printstack(*stack_b);
 	while (*stack_b)
 	{
@@ -56,48 +79,91 @@ void	last_sort(t_stack	**stack_a, t_stack	**stack_b)
 	// ft_printstack(*stack_a);
 }
 
+// void	ft_big_sort(t_stack **stack_a, int *sorted ,int size)
+// {
+// 	t_stack	*stack_b;
+// 	t_stack	*tmp;
+// 	int	start;
+// 	int	end;
+// 	int	range;
+
+// 	range = get_range(size);
+// 	start = 0;
+// 	end = range;
+// 	stack_b = NULL;
+// 	while (*stack_a)
+// 	{
+// 			// printf("hamza\n");
+// 				// printf("{{{{{%d}}}}}\n", min_pos(stack_a));
+// 		while ((*stack_a)->content > sorted[end])
+// 		{
+// 			if (min_pos(stack_a) > size / 2)
+// 				rra(stack_a);
+// 		}
+// 		if ((*stack_a)->content <= sorted[start])
+// 		{
+// 			pb(stack_a, &stack_b);
+// 			rb(&stack_b);
+// 		}
+// 		else
+// 		{
+// 			pb(stack_a, &stack_b);
+// 			if (stack_size(stack_b) > 0 && stack_b->content < stack_b->next->content)
+// 				sb(&stack_b);
+// 		}
+// 		tmp = *stack_a;
+// 		(*stack_a) = (*stack_a)->next;
+// 		free(tmp);
+// 		if (end < size)
+// 			end++;
+// 		if (end - start > 1)
+// 			start++;
+// 	}
+// 	// free_int(sorted, size);
+// 	// free(sorted);
+// 	last_sort(stack_a, &stack_b);
+// 	ft_printstack(*stack_a);
+// 	// printf("{{{{{{{{{{stack}}}}}}}}}}\n");
+// }
+
 void	ft_big_sort(t_stack **stack_a, int *sorted ,int size)
 {
 	t_stack	*stack_b;
-	t_stack	*tmp;
-	int	start;
-	int	end;
-	int	range;
+	int start, end, range;
 
-	range = get_range(size);
 	start = 0;
+	range = get_range(size);
 	end = range;
 	stack_b = NULL;
 	while (*stack_a)
 	{
-			// printf("hamza\n");
-				// printf("{{{{{%d}}}}}\n", min_pos(stack_a));
 		while ((*stack_a)->content > sorted[end])
 		{
-			if (min_pos(stack_a) > size / 2)
+			if (get_min(*stack_a) == 0)
+			{
+				pb(stack_a, &stack_b);
+				(*stack_a) = (*stack_a)->next;
+				break;
+			}
+			if (get_min(*stack_a) > range / 2)
+				rra(stack_a);
+			if (get_min(*stack_a) <= range / 2)
 				rra(stack_a);
 		}
-		if ((*stack_a)->content <= sorted[start])
+		if ((*stack_a)->content < sorted[start])
 		{
 			pb(stack_a, &stack_b);
-			rb(&stack_b);
+			if (stack_size(stack_b) > 0)
+				rb(&stack_b);
 		}
 		else
-		{
 			pb(stack_a, &stack_b);
-			if (stack_size(stack_b) > 0 && stack_b->content < stack_b->next->content)
-				sb(&stack_b);
-		}
-		tmp = *stack_a;
 		(*stack_a) = (*stack_a)->next;
-		free(tmp);
+		start++;
 		if (end < size)
 			end++;
-		if (end - start > 1)
-			start++;
 	}
-	// free_int(sorted, size);
-	// free(sorted);
 	last_sort(stack_a, &stack_b);
-	// ft_printstack(stack_b);
+	// ft_printstack(*stack_a);
+	// return (stack_a);
 }
