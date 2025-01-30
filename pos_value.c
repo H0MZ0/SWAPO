@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:07:29 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/29 18:40:41 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/30 11:50:14 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ int	max_pos(t_stack **stack_a)
 	int max;
 	int	index;
 	int i;
+
 	i = 0;
-	max = 0;
-	index = 0;
 	tmp = (*stack_a);
+	max = tmp->content;
+	index = 0;
 	while (tmp != NULL)
 	{
 		if (max < tmp->content)

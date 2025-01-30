@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/28 19:26:50 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/30 09:33:18 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,9 @@ void	free_arr(char **arr)
 		free(arr[i]);
 	free(arr);
 }
+
+// void	free_int(int *sorted, int size)
+// {
+// 	while (size >= 0)
+// 		free(sorted[size--]);
+// }
