@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:19:08 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 16:37:38 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 21:50:18 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void	ft_printstack(t_stack *stack);
 
 
 
-
-int	max_value(t_stack *stack_a);
-void	free_int(int *sorted, int size);
+void	ft_rotate_to_top(t_stack **stack_a, int index, int size);
+int		max_value(t_stack *stack_a);
+// void	free_int(int *sorted, int size);
 
 #endif
