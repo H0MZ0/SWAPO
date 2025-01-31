@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:15:32 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 19:00:17 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 19:50:02 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,28 @@ void	range_three(t_stack **stack_a)
 		rra(stack_a);
 }
 
+void ft_rotate_to_top(t_stack **stack_a, int index, int size)
+{
+	if(index <= size /2)
+		while (index--)
+			ra(stack_a);
+	else
+	{
+		index = size - index;
+		while (index--)
+			rra(stack_a);
+	}
+}
+
 void	range_tofive(t_stack **stack_a, int size)
 {
 	int		tmp;
 	t_stack	*stack_b;
-
 	stack_b = NULL;
 	tmp = size;
 	while (size != 2)
 	{
-		while (min_pos(stack_a) != 0)
-			ra(stack_a);
+		ft_rotate_to_top(stack_a, min_pos(stack_a), size + 1);
 		pb(stack_a, &stack_b);
 		size--;
 	}

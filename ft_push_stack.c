@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:51:12 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 18:58:25 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 19:26:56 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_stack	*ft_creat_stack(int data)
 int	push_stack(t_stack **stack, int data)
 {
 	t_stack	*new_stack;
-
+	// printf("data = %d\n", data);
 	new_stack = ft_creat_stack(data);
 	if (!new_stack)
 		return (0);

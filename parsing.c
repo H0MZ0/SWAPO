@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:37:46 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 19:07:27 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 19:29:13 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,15 @@ void	filter(int ac, char **av)
 	t_stack	*stack_a;
 	int		size;
 	int		*sorted;
-
+	int i = 0;
+	arr = NULL;
 	stack_a = NULL;
-	check_spaces(av);//no allocs
 	arr = join_args(av);//alloc av and assign to arr
-	printf("arr = %s", arr);
 	av = ft_split(arr, ' ');// alloc arr and assign to av
+	while (av[i])
+	{
+		i++;
+	}	
 	free(arr);
 	if (ft_isnum(av) == 0)
 	{
@@ -79,8 +82,11 @@ void	filter(int ac, char **av)
 		ft_putstr ("Error\n");
 	}
 	ac = ac - 1;
-	while (ac--)
-		push_stack(&stack_a, ft_atoi(av[ac]));
+	while (i--)
+	{
+		push_stack(&stack_a, ft_atoi(av[i]));
+	}
+	// ft_printstack(stack_a);
 	size = strtoint(av, &sorted);
 	ft_bubble(sorted, size);
 	if (ft_repeat(&sorted, size) == 0)
