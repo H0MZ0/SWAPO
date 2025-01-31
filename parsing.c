@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:37:46 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 21:28:35 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 21:32:08 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	check_spaces(char **av)
 	int (i), (j);
 	i = 1;
 	if (!av)
-		exit(write (1, "Error\n", 6));
+	{
+		ft_putstr("Error\n");
+		exit (1);
+	}
 	while (av[i])
 	{
 		j = 0;
@@ -28,7 +31,10 @@ void	check_spaces(char **av)
 			j++;
 		}
 		if (av[i][j] == '\0')
-			exit(write (1, "Error\n", 6));
+		{
+			ft_putstr("Error\n");
+			exit(1);
+		}
 		i++;
 	}
 }
