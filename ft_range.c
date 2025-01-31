@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:15:32 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 19:50:02 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 20:52:20 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int	get_range(int size)
 
 void	range_three(t_stack **stack_a)
 {
-	// printf("%d\n", min_pos(stack_a));
-	// printf("%d\n", max_pos(stack_a));
 	if (min_pos(stack_a) == 1 && max_pos(stack_a) == 2)
 		sa(stack_a);
 	if (min_pos(stack_a) == 0 && max_pos(stack_a) == 1)
@@ -55,14 +53,21 @@ void	range_three(t_stack **stack_a)
 
 void ft_rotate_to_top(t_stack **stack_a, int index, int size)
 {
-	if(index <= size /2)
-		while (index--)
-			ra(stack_a);
-	else
+	int	check;
+
+	check = 1;
+	if (index != 0)
 	{
-		index = size - index;
-		while (index--)
-			rra(stack_a);
+		if(index <= size /2)
+			while (index--)
+				ra(stack_a);
+		else
+		{
+			index = size - index;
+			while (index--)
+				rra(stack_a);
+		}
+		check = 0;
 	}
 }
 
@@ -78,7 +83,11 @@ void	range_tofive(t_stack **stack_a, int size)
 		pb(stack_a, &stack_b);
 		size--;
 	}
+	// ft_printstack(*stack_a);
+	// printf("\n\n");
 	range_three(stack_a);
+	// printf("\n\n");
+	// ft_printstack(*stack_a);
 	tmp = tmp - size - 1;
 	while (tmp >= 0)
 	{
