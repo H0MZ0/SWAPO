@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:37:46 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 19:29:13 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 21:28:35 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,11 @@ void	filter(int ac, char **av)
 	int i = 0;
 	arr = NULL;
 	stack_a = NULL;
+	check_spaces(av);
 	arr = join_args(av);//alloc av and assign to arr
 	av = ft_split(arr, ' ');// alloc arr and assign to av
 	while (av[i])
-	{
 		i++;
-	}	
 	free(arr);
 	if (ft_isnum(av) == 0)
 	{
