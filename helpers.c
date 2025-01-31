@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:35:24 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/29 11:15:24 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 17:18:30 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,4 +118,6 @@ void	ft_putstr(char *str)
 	size = ft_strlen(str);
 	while (i < size)
 		write (1, &str[i++], 1);
+	if (strcmp(str, "Error\n") == 0)
+		exit (0);
 }

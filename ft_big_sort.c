@@ -58,21 +58,50 @@ int	get_min(t_stack *stack)
 	return (index);
 }
 
+// void	last_sort(t_stack	**stack_a, t_stack	**stack_b)
+// {
+// 	// int size = stack_size();
+// 	while (*stack_b)
+// 	{
+// 		while (get_max(*stack_b) == 0)
+// 		{
+// 			pa(stack_a, stack_b);
+// 			(*stack_b) = (*stack_b)->next;
+// 		}
+// 		if (get_max(*stack_b) > stack_size(*stack_b) / 2)
+// 			rrb(stack_b);
+// 		else if (get_max(*stack_b) <= stack_size(*stack_b) / 2)
+// 			rb(stack_b);
+// 		(*stack_b) = (*stack_b)->next;
+// 	}
+// }
+
 void	last_sort(t_stack	**stack_a, t_stack	**stack_b)
 {
+	int max_index;
+	int size_b;
+
 	while (*stack_b)
 	{
-		if (max_value(*stack_b) == (*stack_b)->content)
-			{
-				pa(stack_a, stack_b);
-				(*stack_b) = (*stack_b)->next;
-			}
+		max_index = get_max(*stack_b);
+		size_b = stack_size(*stack_b);
+
+		if (max_index == 0)
+		{
+			pa(stack_a, stack_b);
+			(*stack_b) = (*stack_b)->next;
+		}
 		else
-			rb(stack_b);
+		{
+			if (max_index > size_b / 2)
+				rrb(stack_b);
+			else
+				rb(stack_b);
+		}
 	}
 }
 
-void	ft_big_sort(t_stack **stack_a, int *sorted ,int size)
+void	ft_big_sort(t_stack **stack_a, int *sorted, int size)
 {
 	t_stack	*stack_b;
 	int start, end, range;
@@ -89,7 +118,6 @@ void	ft_big_sort(t_stack **stack_a, int *sorted ,int size)
 			{
 				pb(stack_a, &stack_b);
 				(*stack_a) = (*stack_a)->next;
-				break;
 			}
 			if (get_min(*stack_a) > range / 2)
 				rra(stack_a);

@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:19:08 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/30 09:39:28 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 16:37:38 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 /*FT_FREE*/
 void	free_struct(t_stack *stack);
 void	free_arr(char **arr);
+void	free_int(int *sorted, int size);
 /*PARSING_and_FILTER*/
 void	filter(int ac, char **av);
 void	check_spaces(char **av);
@@ -55,10 +56,10 @@ char	*join_args(char **av);
 char	**ft_split(char const *s, char c);
 /*INT*_CHECK*/
 int		stack_is_empty(t_stack *stack);
-void	ft_isnum(char **av);
+int		ft_isnum(char **av);
 int		strtoint(char **av, int **sorted);
 void	ft_bubble(int *strs, int size);
-void	ft_repeat(int **strs, int size);
+int		ft_repeat(int **strs, int size);
 /*RANGE*/
 int		stack_size(t_stack *stack);
 int		get_range(int size);

@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/30 09:33:18 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 18:45:27 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	free_struct(t_stack *stack)
 		stack = stack->next;
 		free(tmp);
 	}
+	free(stack);
 }
 
 void	free_arr(char **arr)
@@ -33,11 +34,14 @@ void	free_arr(char **arr)
 		i++;
 	while (i--)
 		free(arr[i]);
-	free(arr);
+	free (arr);
 }
 
 // void	free_int(int *sorted, int size)
 // {
 // 	while (size >= 0)
-// 		free(sorted[size--]);
+// 	{
+// 		free(sorted[size]);
+// 		size--;
+// 	}
 // }

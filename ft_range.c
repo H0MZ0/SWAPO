@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:15:32 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/30 16:07:34 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 19:00:17 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,19 @@ int	stack_size(t_stack *stack)
 int	get_range(int size)
 {
 	if (size <= 16)
-		return (size / 2);
+		return (3);
 	else if (size <= 100)
-		return (size / 5);
+		return (16);
 	else if (size <= 500)
-		return (size / 12);
+		return (30);
 	else
-		return (size / 15);
+		return (35);
 }
 
 void	range_three(t_stack **stack_a)
 {
+	// printf("%d\n", min_pos(stack_a));
+	// printf("%d\n", max_pos(stack_a));
 	if (min_pos(stack_a) == 1 && max_pos(stack_a) == 2)
 		sa(stack_a);
 	if (min_pos(stack_a) == 0 && max_pos(stack_a) == 1)
@@ -63,7 +65,6 @@ void	range_tofive(t_stack **stack_a, int size)
 		while (min_pos(stack_a) != 0)
 			ra(stack_a);
 		pb(stack_a, &stack_b);
-		(*stack_a) = (*stack_a)->next;
 		size--;
 	}
 	range_three(stack_a);
@@ -71,7 +72,6 @@ void	range_tofive(t_stack **stack_a, int size)
 	while (tmp >= 0)
 	{
 		pa(stack_a, &stack_b);
-		stack_b = stack_b->next;
 		tmp--;
 	}
 }
@@ -92,11 +92,8 @@ void	ft_range(t_stack *stack_a, int *sorted, int size)
 		range_tofive(&stack_a, size);
 	if (size > 4)
 		ft_big_sort(&stack_a, sorted, size);
-	// int i = 0;
-	// while (i <= size)
-	// {
-	// 	printf("%d->", sorted[i]);
-	// 	i++;
-	// }
-	// ft_printstack(stack_a);
+	free (sorted);
+	// sorted = NULL;
+	ft_printstack(stack_a);
+	free_struct(stack_a);
 }
