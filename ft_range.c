@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:15:32 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 20:52:20 by hakader          ###   ########.fr       */
+/*   Updated: 2025/01/31 20:54:13 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,7 @@ void	range_tofive(t_stack **stack_a, int size)
 		pb(stack_a, &stack_b);
 		size--;
 	}
-	// ft_printstack(*stack_a);
-	// printf("\n\n");
 	range_three(stack_a);
-	// printf("\n\n");
-	// ft_printstack(*stack_a);
 	tmp = tmp - size - 1;
 	while (tmp >= 0)
 	{
