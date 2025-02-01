@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:15:32 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 12:27:30 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/01 16:07:51 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ void	ft_range(t_stack **stack_a, int *sorted, int size)
 	if (size == 3 || size == 4)
 		range_tofive(stack_a, size);
 	if (size > 4)
-		ft_big_sort(stack_a, sorted, size);
+		if (check_sort(*stack_a) == 1)
+			ft_big_sort(stack_a, sorted, size);
 	free (sorted);
 	free_struct(*stack_a);
 }

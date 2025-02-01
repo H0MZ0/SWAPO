@@ -12,50 +12,15 @@
 
 #include "push_swap.h"
 
-int	get_max(t_stack *stack)
+int	check_sort(t_stack	*stack_a)
 {
-	int	max;
-	int	index;
-	int	i;
-
-	i = 0;
-	max = stack->content;
-	index = 0;
-	stack = (stack->next);
-	while (stack)
+	while (stack_a->next)
 	{
-		if (stack->content > max)
-		{
-			max = stack->content;
-			index = i;
-		}
-		stack = stack->next;
-		i++;
+		if (stack_a->content > stack_a->next->content)
+			return (1);
+		stack_a = stack_a->next;
 	}
-	return (index);
-}
-
-int	get_min(t_stack *stack)
-{
-	int	min;
-	int	index;
-	int	i;
-
-	i = 0;
-	min = stack->content;
-	index = 0;
-	stack = (stack->next);
-	while (stack)
-	{
-		if (stack->content < min)
-		{
-			min = stack->content;
-			index = i;
-		}
-		stack = stack->next;
-		i++;
-	}
-	return (index);
+	return (0);
 }
 
 void	last_pb(t_stack **stack_a, t_stack **stack_b)
@@ -95,18 +60,18 @@ void	ft_big_sort(t_stack **stack_a, int *sorted, int size)
 void	last_sort(t_stack	**stack_a, t_stack	**stack_b)
 {
 	int	max;
-	int	max_pos;
+	int	max_posi;
 
 	while (*stack_b)
 	{
 		max = max_value(*stack_b);
-		max_pos = get_max(*stack_b);
-		if (max_pos <= stack_size(*stack_b) / 2)
+		max_posi = max_pos(stack_b);
+		if (max_posi <= stack_size(*stack_b) / 2)
 		{
 			while (max != (*stack_b)->content)
 				rb(stack_b);
 		}
-		else if (max_pos > stack_size(*stack_b) / 2)
+		else if (max_posi > stack_size(*stack_b) / 2)
 		{
 			while (max != (*stack_b)->content)
 				rrb(stack_b);
