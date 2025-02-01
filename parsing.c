@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:37:46 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 21:32:08 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/01 12:18:24 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,30 +72,25 @@ void	filter(int ac, char **av)
 	t_stack	*stack_a;
 	int		size;
 	int		*sorted;
-	int i = 0;
+
+	size = 0;
 	arr = NULL;
 	stack_a = NULL;
 	check_spaces(av);
-	arr = join_args(av);//alloc av and assign to arr
-	av = ft_split(arr, ' ');// alloc arr and assign to av
-	while (av[i])
-		i++;
+	arr = join_args(av);
+	av = ft_split(arr, ' ');
+	while (av[size])
+		size++;
 	free(arr);
 	if (ft_isnum(av) == 0)
-	{
-		free_arr(av);
-		ft_putstr ("Error\n");
-	}
+		(free_arr(av)), (ft_putstr ("Error\n"));
 	ac = ac - 1;
-	while (i--)
-	{
-		push_stack(&stack_a, ft_atoi(av[i]));
-	}
-	// ft_printstack(stack_a);
+	while (size--)
+		push_stack(&stack_a, ft_atoi(av[size]));
 	size = strtoint(av, &sorted);
 	ft_bubble(sorted, size);
 	if (ft_repeat(&sorted, size) == 0)
 		free_repeat(stack_a, sorted, av);
 	free_arr(av);
-	ft_range(stack_a, sorted, size);
+	ft_range(&stack_a, sorted, size);
 }

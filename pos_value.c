@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:07:29 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/30 11:50:14 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/01 12:31:30 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ int	min_pos(t_stack **stack_a)
 int	max_pos(t_stack **stack_a)
 {
 	t_stack	*tmp;
-
-	int max;
-	int	index;
-	int i;
+	int		max;
+	int		index;
+	int		i;
 
 	i = 0;
 	tmp = (*stack_a);
@@ -61,7 +60,7 @@ int	max_pos(t_stack **stack_a)
 
 int	max_value(t_stack *stack)
 {
-	int max;
+	int	max;
 
 	max = stack->content;
 	stack = (stack->next);

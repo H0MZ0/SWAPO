@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:19:08 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 10:56:31 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/01 12:29:53 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_rotate_ab(t_stack **stack);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
+void	ft_rotate_to_top(t_stack **stack_a, int index, int size);
 /*REVERSE_RETATE*/
 void	ft_rev_rotate_ab(t_stack **stack);
 void	rra(t_stack **stack_a);
@@ -63,7 +64,7 @@ int		ft_repeat(int **strs, int size);
 /*RANGE*/
 int		stack_size(t_stack *stack);
 int		get_range(int size);
-void	ft_range(t_stack *stack_a, int *sorted, int size);
+void	ft_range(t_stack **stack_a, int *sorted, int size);
 void	range_three(t_stack **stack_a);
 void	range_tofive(t_stack **stack_a, int size);
 /*BIG_SORT*/
@@ -72,8 +73,7 @@ void	last_sort(t_stack	**stack_a, t_stack	**stack_b);
 /*POS_and_VALUE*/
 int		min_pos(t_stack **stack_a);
 int		max_pos(t_stack **stack_a);
-int		mini(t_stack **stack_a);
-int		maxi(t_stack **stack_a);
+int		max_value(t_stack *stack_a);
 /*HELPERS*/
 int		ft_atoi(char *str);
 size_t	ft_strlen(const char *str);
@@ -82,13 +82,5 @@ char	*ft_strjoin(char *s1, char *s2);
 void	ft_putstr(char *str);
 /*STACK*/
 void	ft_printstack(t_stack *stack);
-
-
-
-
-
-void	ft_rotate_to_top(t_stack **stack_a, int index, int size);
-int		max_value(t_stack *stack_a);
-// void	free_int(int *sorted, int size);
 
 #endif

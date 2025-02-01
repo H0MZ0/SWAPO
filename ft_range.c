@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:15:32 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 11:36:01 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/01 12:27:30 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,30 +51,11 @@ void	range_three(t_stack **stack_a)
 		rra(stack_a);
 }
 
-void ft_rotate_to_top(t_stack **stack_a, int index, int size)
-{
-	int	check;
-
-	check = 1;
-	if (index != 0)
-	{
-		if(index <= size /2)
-			while (index--)
-				ra(stack_a);
-		else
-		{
-			index = size - index;
-			while (index--)
-				rra(stack_a);
-		}
-		check = 0;
-	}
-}
-
 void	range_tofive(t_stack **stack_a, int size)
 {
 	int		tmp;
 	t_stack	*stack_b;
+
 	stack_b = NULL;
 	tmp = size;
 	while (size != 2)
@@ -92,22 +73,22 @@ void	range_tofive(t_stack **stack_a, int size)
 	}
 }
 
-void	ft_range(t_stack *stack_a, int *sorted, int size)
+void	ft_range(t_stack **stack_a, int *sorted, int size)
 {
 	int	check;
 	int	range;
 
 	range = get_range(size);
-	check = min_pos(&stack_a);
+	check = min_pos(stack_a);
 	if (size == 1)
 		if (check != 0)
-			sa(&stack_a);
+			sa(stack_a);
 	if (size == 2)
-		range_three(&stack_a);
+		range_three(stack_a);
 	if (size == 3 || size == 4)
-		range_tofive(&stack_a, size);
+		range_tofive(stack_a, size);
 	if (size > 4)
-		ft_big_sort(&stack_a, sorted, size);
+		ft_big_sort(stack_a, sorted, size);
 	free (sorted);
-	free_struct(stack_a);
+	free_struct(*stack_a);
 }
