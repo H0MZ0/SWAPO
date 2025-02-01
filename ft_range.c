@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:15:32 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/31 21:38:03 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/01 11:01:18 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	stack_size(t_stack *stack)
 int	get_range(int size)
 {
 	if (size <= 16)
-		return (3);
+		return (size / 2);
 	else if (size <= 100)
-		return (16);
+		return (size / 5);
 	else if (size <= 500)
-		return (30);
+		return (size / 12);
 	else
 		return (35);
 }
