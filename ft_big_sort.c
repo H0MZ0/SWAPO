@@ -112,5 +112,5 @@ void	last_sort(t_stack	**stack_a, t_stack	**stack_b)
 		}
 		pa(stack_a, stack_b);
 	}
-	// ft_printstack(*stack_a);
+	ft_printstack(*stack_a);
 }
