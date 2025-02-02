@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:00:09 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/29 11:28:35 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 22:32:52 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,24 @@ void	ft_rev_rotate_ab(t_stack **stack)
 	before_last->next = NULL;
 }
 
-void	rra(t_stack **stack_a)
+void	rra(t_stack **stack_a, int check)
 {
 	ft_rev_rotate_ab(stack_a);
-	ft_putstr("rra\n");
+	if (check == 1)
+		ft_putstr("rra\n");
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b, int check)
 {
 	ft_rev_rotate_ab(stack_b);
-	ft_putstr("rrb\n");
+	if (check == 1)
+		ft_putstr("rrb\n");
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b, int check)
 {
 	ft_rev_rotate_ab(stack_a);
 	ft_rev_rotate_ab(stack_b);
-	ft_putstr("rrr\n");
+	if (check == 1)
+		ft_putstr("rrr\n");
 }

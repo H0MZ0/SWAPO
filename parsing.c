@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:37:46 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 20:40:03 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 23:26:45 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,9 @@ void	filter(int ac, char **av, t_stack **stack_a, int check)
 	av = ft_split(arr, ' ');
 	while (av[size])
 		size++;
-	free(arr);
+	(free(arr)), (ac = ac - 1);
 	if (ft_isnum(av) == 0)
 		(free_arr(av)), (put_err ("Error\n"));
-	ac = ac - 1;
 	while (size--)
 		push_stack(stack_a, ft_atoi(av[size]));
 	size = strtoint(av, &sorted);
@@ -86,6 +85,6 @@ void	filter(int ac, char **av, t_stack **stack_a, int check)
 	free_arr(av);
 	if (check == 1)
 		ft_range(stack_a, sorted, size);
-	// else
-		// free(sorted);
+	else
+		free(sorted);
 }

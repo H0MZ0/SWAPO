@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:41:09 by hakader           #+#    #+#             */
-/*   Updated: 2025/01/29 11:28:32 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 22:27:21 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,24 @@ void	swap_ab(t_stack **stack)
 	(*stack)->next->content = tmp;
 }
 
-void	sa(t_stack **stack_a)
+void	sa(t_stack **stack_a, int check)
 {
 	swap_ab(stack_a);
-	ft_putstr("sa\n");
+	if (check == 1)
+		ft_putstr("sa\n");
 }
 
-void	sb(t_stack **stack_b)
+void	sb(t_stack **stack_b, int check)
 {
 	swap_ab(stack_b);
-	ft_putstr("sb\n");
+	if (check == 1)
+		ft_putstr("sb\n");
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b, int check)
 {
 	swap_ab(stack_a);
 	swap_ab(stack_b);
-	ft_putstr("ss\n");
+	if (check == 1)
+		ft_putstr("ss\n");
 }

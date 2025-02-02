@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:51:12 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 16:30:42 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 23:25:06 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	push_stack(t_stack **stack, int data)
 	return (1);
 }
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b, int check)
 {
 	t_stack	*tmp;
 
@@ -44,10 +44,11 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	push_stack(stack_a, (*stack_b)->content);
 	(*stack_b) = (*stack_b)->next;
 	free (tmp);
-	ft_putstr("pa\n");
+	if (check == 1)
+		ft_putstr("pa\n");
 }
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b, int check)
 {
 	t_stack	*tmp;
 
@@ -55,5 +56,14 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	push_stack(stack_b, (*stack_a)->content);
 	(*stack_a) = (*stack_a)->next;
 	free (tmp);
-	ft_putstr("pb\n");
+	if (check == 1)
+		ft_putstr("pb\n");
+}
+
+void	ft_printstack(t_stack *stack)
+{
+	if (stack == NULL)
+		return ;
+	printf("%d\n", stack->content);
+	ft_printstack(stack->next);
 }

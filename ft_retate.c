@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:57:12 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 12:27:59 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 22:31:13 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,26 @@ void	ft_rotate_ab(t_stack **stack)
 	last->next->next = NULL;
 }
 
-void	ra(t_stack **stack_a)
+void	ra(t_stack **stack_a, int check)
 {
 	ft_rotate_ab(stack_a);
-	ft_putstr("ra\n");
+	if (check == 1)
+		ft_putstr("ra\n");
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_b, int check)
 {
 	ft_rotate_ab(stack_b);
-	ft_putstr("rb\n");
+	if (check == 1)
+		ft_putstr("rb\n");
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, int check)
 {
 	ft_rotate_ab(stack_a);
 	ft_rotate_ab(stack_b);
-	ft_putstr("rr\n");
+	if (check == 1)
+		ft_putstr("rr\n");
 }
 
 void	ft_rotate_to_top(t_stack **stack_a, int index, int size)
@@ -51,12 +54,12 @@ void	ft_rotate_to_top(t_stack **stack_a, int index, int size)
 	{
 		if (index <= size / 2)
 			while (index--)
-				ra(stack_a);
+				ra(stack_a, 1);
 		else
 		{
 			index = size - index;
 			while (index--)
-				rra(stack_a);
+				rra(stack_a, 1);
 		}
 	}
 }

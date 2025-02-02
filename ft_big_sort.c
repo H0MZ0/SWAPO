@@ -25,11 +25,11 @@ int	check_sort(t_stack	*stack_a)
 
 void	last_pb(t_stack **stack_a, t_stack **stack_b)
 {
-	pb(stack_a, stack_b);
+	pb(stack_a, stack_b, 1);
 	if (stack_size(*stack_b) > 0)
 	{
 		if ((*stack_b)->content < (*stack_b)->next->content)
-			sb(stack_b);
+			sb(stack_b, 1);
 	}
 }
 
@@ -50,9 +50,9 @@ void	ft_big_sort(t_stack **stack_a, int *sorted, int size)
 			&& (*stack_a)->content <= sorted[range + index])
 			(last_pb(stack_a, &stack_b)), (index++);
 		else if ((*stack_a)->content < sorted[index])
-			(pb(stack_a, &stack_b)), (rb(&stack_b)), (index++);
+			(pb(stack_a, &stack_b, 1)), (rb(&stack_b, 1)), (index++);
 		else
-			ra(stack_a);
+			ra(stack_a, 1);
 	}
 	last_sort(stack_a, &stack_b);
 }
@@ -69,13 +69,13 @@ void	last_sort(t_stack	**stack_a, t_stack	**stack_b)
 		if (max_posi <= stack_size(*stack_b) / 2)
 		{
 			while (max != (*stack_b)->content)
-				rb(stack_b);
+				rb(stack_b, 1);
 		}
 		else if (max_posi > stack_size(*stack_b) / 2)
 		{
 			while (max != (*stack_b)->content)
-				rrb(stack_b);
+				rrb(stack_b, 1);
 		}
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, 1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:19:08 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 20:37:20 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 22:33:56 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,25 @@ typedef struct list
 
 /*SWAP*/
 void	swap_ab(t_stack **stack);
-void	sa(t_stack **stack_a);
-void	sb(t_stack **stack_b);
-void	ss(t_stack **stack_a, t_stack **stack_b);
+void	sa(t_stack **stack_a, int check);
+void	sb(t_stack **stack_b, int check);
+void	ss(t_stack **stack_a, t_stack **stack_b, int check);
 /*PUSH*/
 t_stack	*ft_creat_stack(int data);
 int		push_stack(t_stack **stack, int data);
-void	pa(t_stack **stack_a, t_stack **stack_b);
-void	pb(t_stack **stack_a, t_stack **stack_b);
+void	pa(t_stack **stack_a, t_stack **stack_b, int check);
+void	pb(t_stack **stack_a, t_stack **stack_b, int check);
 /*RETATE*/
 void	ft_rotate_ab(t_stack **stack);
-void	ra(t_stack **stack_a);
-void	rb(t_stack **stack_b);
-void	rr(t_stack **stack_a, t_stack **stack_b);
+void	ra(t_stack **stack_a, int check);
+void	rb(t_stack **stack_b, int check);
+void	rr(t_stack **stack_a, t_stack **stack_b, int check);
 void	ft_rotate_to_top(t_stack **stack_a, int index, int size);
 /*REVERSE_RETATE*/
 void	ft_rev_rotate_ab(t_stack **stack);
-void	rra(t_stack **stack_a);
-void	rrb(t_stack **stack_b);
-void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	rra(t_stack **stack_a, int check);
+void	rrb(t_stack **stack_b, int check);
+void	rrr(t_stack **stack_a, t_stack **stack_b, int check);
 /*FT_FREE*/
 void	free_struct(t_stack **stack);
 void	free_arr(char **arr);
