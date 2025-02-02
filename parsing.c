@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:37:46 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 12:18:24 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:09:53 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	check_spaces(char **av)
 	int (i), (j);
 	i = 1;
 	if (!av)
-	{
-		ft_putstr("Error\n");
-		exit (1);
-	}
+		put_err("Error\n");
 	while (av[i])
 	{
 		j = 0;
@@ -31,10 +28,7 @@ void	check_spaces(char **av)
 			j++;
 		}
 		if (av[i][j] == '\0')
-		{
-			ft_putstr("Error\n");
-			exit(1);
-		}
+			put_err("Error\n");
 		i++;
 	}
 }
@@ -63,7 +57,7 @@ void	free_repeat(t_stack *stack, int *sorted, char **av)
 	free_struct(stack);
 	free(sorted);
 	free_arr(av);
-	ft_putstr("Error\n");
+	put_err("Error\n");
 }
 
 void	filter(int ac, char **av)
@@ -83,7 +77,7 @@ void	filter(int ac, char **av)
 		size++;
 	free(arr);
 	if (ft_isnum(av) == 0)
-		(free_arr(av)), (ft_putstr ("Error\n"));
+		(free_arr(av)), (put_err ("Error\n"));
 	ac = ac - 1;
 	while (size--)
 		push_stack(&stack_a, ft_atoi(av[size]));

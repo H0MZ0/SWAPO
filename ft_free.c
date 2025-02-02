@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 15:34:57 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 12:08:15 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,17 @@ void	free_arr(char **arr)
 	while (i--)
 		free(arr[i]);
 	free (arr);
+}
+
+void	put_err(char *str)
+{
+	int	size;
+	int	i;
+
+	i = 0;
+	size = ft_strlen(str);
+	while (i < size)
+		write (2, &str[i++], 1);
+	if (strcmp(str, "Error\n") == 0)
+		exit (1);
 }
