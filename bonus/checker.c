@@ -6,40 +6,19 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 18:35:26 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 20:42:24 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "gnl2/get_next_line.h"
 
-char	*ft_strdup(const char *s1)
-{
-	char	*dest;
-	int		i;
-	int		len;
-
-	len = ft_strlen(s1);
-	dest = malloc(len + 1);
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-void	ft_printstack(t_stack *stack)
-{
-	if (stack == NULL)
-		return ;
-	printf("%d\n", stack->content);
-	ft_printstack(stack->next);
-}
+// void	ft_printstack(t_stack *stack)
+// {
+// 	if (stack == NULL)
+// 		return ;
+// 	printf("%d\n", stack->content);
+// 	ft_printstack(stack->next);
+// }
 
 int	check_sort(t_stack	*stack_a)
 {

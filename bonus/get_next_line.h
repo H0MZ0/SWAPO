@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 01:21:53 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/01 16:29:04 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 20:41:37 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <limits.h>
+# include "../push_swap.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000
