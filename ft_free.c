@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 20:35:12 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 23:38:54 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	free_struct(t_stack **stack)
 		free(tmp);
 	}
 }
-
 
 void	free_arr(char **arr)
 {
