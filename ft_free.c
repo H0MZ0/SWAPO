@@ -6,24 +6,24 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 12:08:15 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 20:35:12 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_struct(t_stack *stack)
+void	free_struct(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	while (stack)
+	while (*stack)
 	{
-		tmp = stack;
-		stack = stack->next;
+		tmp = *stack;
+		*stack = (*stack)->next;
 		free(tmp);
 	}
-	free(stack);
 }
+
 
 void	free_arr(char **arr)
 {

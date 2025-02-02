@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:37:46 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 12:09:53 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 20:36:53 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*join_args(char **av)
 	return (join);
 }
 
-void	free_repeat(t_stack *stack, int *sorted, char **av)
+void	free_repeat(t_stack **stack, int *sorted, char **av)
 {
 	free_struct(stack);
 	free(sorted);
@@ -60,16 +60,14 @@ void	free_repeat(t_stack *stack, int *sorted, char **av)
 	put_err("Error\n");
 }
 
-void	filter(int ac, char **av)
+void	filter(int ac, char **av, t_stack **stack_a, int check)
 {
 	char	*arr;
-	t_stack	*stack_a;
 	int		size;
 	int		*sorted;
 
 	size = 0;
 	arr = NULL;
-	stack_a = NULL;
 	check_spaces(av);
 	arr = join_args(av);
 	av = ft_split(arr, ' ');
@@ -80,11 +78,14 @@ void	filter(int ac, char **av)
 		(free_arr(av)), (put_err ("Error\n"));
 	ac = ac - 1;
 	while (size--)
-		push_stack(&stack_a, ft_atoi(av[size]));
+		push_stack(stack_a, ft_atoi(av[size]));
 	size = strtoint(av, &sorted);
 	ft_bubble(sorted, size);
 	if (ft_repeat(&sorted, size) == 0)
 		free_repeat(stack_a, sorted, av);
 	free_arr(av);
-	ft_range(&stack_a, sorted, size);
+	if (check == 1)
+		ft_range(stack_a, sorted, size);
+	else
+		free(sorted);
 }
