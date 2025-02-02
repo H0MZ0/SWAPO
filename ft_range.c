@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:15:32 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 13:45:44 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 19:33:57 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,19 @@ void	ft_range(t_stack **stack_a, int *sorted, int size)
 
 	range = get_range(size);
 	check = min_pos(stack_a);
-	if (size == 1)
-		if (check != 0)
-			sa(stack_a);
-	if (size == 2)
-		range_three(stack_a);
-	if (size == 3 || size == 4)
-		range_tofive(stack_a, size);
-	if (size > 4)
-		if (check_sort(*stack_a) == 1)
+	if (check_sort(*stack_a) == 1)
+	{
+		if (size == 1)
+			if (check != 0)
+				sa(stack_a);
+		if (size == 2)
+			range_three(stack_a);
+		if (size == 3 || size == 4)
+			range_tofive(stack_a, size);
+		if (size > 4)
 			ft_big_sort(stack_a, sorted, size);
+	}
 	free (sorted);
-	// ft_printstack(*stack_a);
+	ft_printstack(*stack_a);
 	free_struct(*stack_a);
 }
