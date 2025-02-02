@@ -6,11 +6,11 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 20:42:24 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 20:58:40 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "get_next_line.h"
 
 // void	ft_printstack(t_stack *stack)
 // {
@@ -20,34 +20,17 @@
 // 	ft_printstack(stack->next);
 // }
 
-int	check_sort(t_stack	*stack_a)
-{
-	while (stack_a->next)
-	{
-		if (stack_a->content > stack_a->next->content)
-			return (1);
-		stack_a = stack_a->next;
-	}
-	return (0);
-}
+// int	check_sort(t_stack	*stack_a)
+// {
+// 	while (stack_a->next)
+// 	{
+// 		if (stack_a->content > stack_a->next->content)
+// 			return (1);
+// 		stack_a = stack_a->next;
+// 	}
+// 	return (0);
+// }
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (0);
-	while (s1[i] == 32)
-		i++;
-	i = 0;
-	while (s2[i] == 32)
-		i++;
-	i = 0;
-	while (s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
-}
 
 void	get_checker(t_stack **stack_a, t_stack **stack_b, char *get)
 {
@@ -84,19 +67,17 @@ int main(int ac, char **av)
 {
 	t_stack *stack_a;
 	t_stack *stack_b;
-	int index;
 	char *get;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	get = NULL;
 	ac = ac - 1;
-	while (ac >= 1)
-		push_stack(&stack_a, ft_atoi(av[ac--]));
+	filter(ac, av, &stack_a, 0);
 	while ((get = get_next_line(0)))
 	{
 		get_checker (&stack_a, &stack_b, get);
-		// free (get);
+		free (get);
 	}
 	ft_printstack(stack_a);
 	if (check_sort(stack_a) == 0)
