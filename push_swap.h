@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:19:08 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 22:33:56 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/03 14:49:22 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@ int		check_sort(t_stack	*stack_a);
 int		min_pos(t_stack **stack_a);
 int		max_pos(t_stack **stack_a);
 int		max_value(t_stack *stack_a);
-/*HELPERS*/
 int		ft_atoi(char *str);
+/*HELPERS*/
+int		ft_atoio(char *str, char **av, t_stack **stack);
 size_t	ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char *s2);

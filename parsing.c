@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:37:46 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 23:26:45 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/03 14:48:37 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	filter(int ac, char **av, t_stack **stack_a, int check)
 	if (ft_isnum(av) == 0)
 		(free_arr(av)), (put_err ("Error\n"));
 	while (size--)
-		push_stack(stack_a, ft_atoi(av[size]));
+		push_stack(stack_a, ft_atoio(av[size], av, stack_a));
 	size = strtoint(av, &sorted);
 	ft_bubble(sorted, size);
 	if (ft_repeat(&sorted, size) == 0)

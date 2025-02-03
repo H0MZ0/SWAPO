@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 
 SRC = ft_check.c ft_free.c ft_push_stack.c ft_range.c ft_retate.c ft_reverse_retate.c ft_split.c \
       ft_swap.c helpers.c parsing.c pos_value.c ft_big_sort.c push_swap.c

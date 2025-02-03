@@ -6,13 +6,13 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:35:24 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 13:40:38 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/03 14:53:34 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(char *str)
+int	ft_atoio(char *str, char **av, t_stack **stack)
 {
 	int		i;
 	int		sign;
@@ -22,9 +22,7 @@ int	ft_atoi(char *str)
 	result = 0;
 	sign = 1;
 	while (str[i] && ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13)))
-	{
 		i++;
-	}
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -35,7 +33,7 @@ int	ft_atoi(char *str)
 	{
 		result = result * 10 + (str[i++] - 48);
 		if ((sign * result) > 2147483647 || (sign * result) < -2147483648)
-			put_err("Error\n");
+			(free_arr(av)), (free_struct(stack)), put_err("Error\n");
 	}
 	return (sign * result);
 }
