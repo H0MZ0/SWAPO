@@ -6,13 +6,11 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/03 16:24:39 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:06:41 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-#include <stdlib.h>
 
 char	*skip_spaces(char *str)
 {
@@ -25,14 +23,14 @@ char	*skip_spaces(char *str)
 	j = 0;
 	while (str[i])
 	{
-		if (str[i] != ' ') // Skip spaces and shift characters
+		if (str[i] != ' ')
 		{
 			str[j] = str[i];
 			j++;
 		}
 		i++;
 	}
-	str[j] = '\0'; // Null-terminate the modified string
+	str[j] = '\0';
 	return (str);
 }
 
@@ -41,20 +39,15 @@ char	*skip_spaces(char *str)
 int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
-	// while (s1[i] == 32)
-	// 	i++;
 	if (!s1 || !s2)
 		return (1);
-	while ((s1[i] || s2[j]))
+	while ((s1[i] || s2[i]))
 	{
-		if (s1[i] != s2[j])
-			return (s1[i] - s2[j]);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
-		j++;
 	}
 	return (0);
 }
@@ -111,13 +104,10 @@ int	main(int ac, char **av)
 	size = stack_size(stack_a);
 	while ((get = get_next_line(0)))
 	{
-		printf("((%s))\n", get);
 		get = skip_spaces(get);
-		printf("{{%s}}\n", get);
 		get_checker (&stack_a, &stack_b, get);
 		free (get);
 	}
-	ft_printstack(stack_a);
 	if (check_sort(stack_a) == 0 && stack_size(stack_a) == size)
 		ft_putstr("OK\n");
 	else
