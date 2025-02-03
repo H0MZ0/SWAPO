@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/03 11:27:30 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/03 12:12:05 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	main(int ac, char **av)
 		get_checker (&stack_a, &stack_b, get);
 		free (get);
 	}
+	ft_printstack(stack_a);
 	if (check_sort(stack_a) == 0 && stack_size(stack_a) == size)
 		ft_putstr("OK\n");
 	else
