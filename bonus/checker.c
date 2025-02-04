@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/03 18:06:41 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/03 21:55:30 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ int	main(int ac, char **av)
 	size = stack_size(stack_a);
 	while ((get = get_next_line(0)))
 	{
+		// printf("{{{{{{{{{%s}}}}}}}}}\n", get);
 		get = skip_spaces(get);
 		get_checker (&stack_a, &stack_b, get);
 		free (get);
