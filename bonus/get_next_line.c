@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 17:26:11 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/03 11:30:08 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/04 10:48:07 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ char	*ft_handle(char **full_buff, int index)
 	char	*line;
 	char	*temp;
 
-	line = ft_substr(*full_buff, 0, index + 1);
-	temp = ft_substr(*full_buff, index + 1,
-			ft_strlen(*full_buff) - index - 1);
+	line = ft_substrr(*full_buff, 0, index + 1);
+	temp = ft_substrr(*full_buff, index + 1,
+			ft_strlenn(*full_buff) - index - 1);
 	ft_free(full_buff);
 	*full_buff = temp;
 	return (line);
@@ -68,7 +68,7 @@ char	*get_line(int fd, char **full_buff)
 			break ;
 		}
 		buffer[bytes_read] = '\0';
-		*full_buff = ft_strjoin(*full_buff, buffer);
+		*full_buff = ft_strjoinn(*full_buff, buffer);
 	}
 	return (free(buffer), *full_buff);
 }
@@ -92,6 +92,6 @@ char	*get_next_line(int fd)
 	index = ft_charlen(full_buff);
 	if (index >= 0)
 		return (ft_handle(&full_buff, index));
-	line = ft_strdup(full_buff);
+	line = ft_strdupp(full_buff);
 	return (ft_free(&full_buff), line);
 }
