@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/05 12:40:38 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/05 14:47:35 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	handle_error(t_stack **stack_a, t_stack **stack_b, char *get)
 	free(get);
 	free_struct(stack_a);
 	free_struct(stack_b);
+	get_next_line(10);
 	put_err("Error\n");
 }
 
@@ -62,10 +63,12 @@ int	main(int ac, char **av)
 	ac = ac - 1;
 	filter(ac, av, &stack_a, 0);
 	size = stack_size(stack_a);
-	while ((get = get_next_line(0)))
+	get = get_next_line(0);
+	while (get)
 	{
 		get_check (&stack_a, &stack_b, get);
 		free (get);
+		get = get_next_line(0);
 	}
 	if (check_sort(stack_a) == 0 && stack_size(stack_a) == size)
 		ft_putstr("OK\n");

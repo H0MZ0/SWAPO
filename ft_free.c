@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:21 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/05 12:26:21 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/05 14:29:17 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ void	put_err(char *str)
 	size = ft_strlen(str);
 	while (i < size)
 		write (2, &str[i++], 1);
-	if (ft_strcmp(str, "Error\n") == 0)
-		exit (1);
+	exit (1);
 }
