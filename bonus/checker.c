@@ -6,85 +6,46 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/04 11:00:59 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/05 12:32:28 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// char	*skip_spaces(char *str)
-// {
-// 	int		i;
-// 	int		j;
-
-// 	if (!str)
-// 		return (NULL);
-// 	i = 0;
-// 	j = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i] != ' ')
-// 		{
-// 			str[j] = str[i];
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	str[j] = '\0';
-// 	return (str);
-// }
-
-
-
-int	ft_strcmp(const char *s1, const char *s2)
+void	handle_error(t_stack **stack_a, t_stack **stack_b, char *get)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (1);
-	while ((s1[i] || s2[i]))
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
+	free(get);
+	free_struct(stack_a);
+	free_struct(stack_b);
+	put_err("Error\n");
 }
 
-void	get_checker(t_stack **stack_a, t_stack **stack_b, char *get)
+void	get_check(t_stack **stack_a, t_stack **stack_b, char *get)
 {
-	if (ft_strcmp(get, "sa\n") == 0)
+	if (!ft_strcmp(get, "sa\n"))
 		sa(stack_a, 0);
-	else if (ft_strcmp(get, "sb\n") == 0)
+	else if (!ft_strcmp(get, "sb\n"))
 		sb(stack_b, 0);
-	else if (ft_strcmp(get, "ss\n") == 0)
+	else if (!ft_strcmp(get, "ss\n"))
 		ss(stack_a, stack_b, 0);
-	else if (ft_strcmp(get, "pa\n") == 0)
+	else if (!ft_strcmp(get, "pa\n"))
 		pa(stack_a, stack_b, 0);
-	else if (ft_strcmp(get, "pb\n") == 0)
+	else if (!ft_strcmp(get, "pb\n"))
 		pb(stack_a, stack_b, 0);
-	else if (ft_strcmp(get, "sb\n") == 0)
-		sb(stack_b, 0);
-	else if (ft_strcmp(get, "ra\n") == 0)
+	else if (!ft_strcmp(get, "ra\n"))
 		ra(stack_a, 0);
-	else if (ft_strcmp(get, "rb\n") == 0)
+	else if (!ft_strcmp(get, "rb\n"))
 		rb(stack_b, 0);
-	else if (ft_strcmp(get, "rr\n") == 0)
+	else if (!ft_strcmp(get, "rr\n"))
 		rr(stack_a, stack_b, 0);
-	else if (ft_strcmp(get, "rra\n") == 0)
+	else if (!ft_strcmp(get, "rra\n"))
 		rra(stack_a, 0);
-	else if (ft_strcmp(get, "rrb\n") == 0)
+	else if (!ft_strcmp(get, "rrb\n"))
 		rrb(stack_b, 0);
-	else if (ft_strcmp(get, "rrr\n") == 0)
-		(rrr(stack_a, stack_b, 0));
+	else if (!ft_strcmp(get, "rrr\n"))
+		rrr(stack_a, stack_b, 0);
 	else
-	{
-		free_struct(stack_a);
-		free_struct(stack_b);
-		free(get);
-		put_err("Error\n");
-	}
+		handle_error(stack_a, stack_b, get);
 }
 
 int	main(int ac, char **av)
@@ -96,7 +57,6 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	get = NULL;
 	if (ac < 2)
 		exit (1);
 	ac = ac - 1;
@@ -104,7 +64,7 @@ int	main(int ac, char **av)
 	size = stack_size(stack_a);
 	while ((get = get_next_line(0)))
 	{
-		get_checker (&stack_a, &stack_b, get);
+		get_check (&stack_a, &stack_b, get);
 		free (get);
 	}
 	if (check_sort(stack_a) == 0 && stack_size(stack_a) == size)

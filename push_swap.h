@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:19:08 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/03 14:49:22 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/05 12:18:35 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	free_struct(t_stack **stack);
 void	free_arr(char **arr);
 void	put_err(char *str);
 /*PARSING_and_FILTER*/
+int		ft_strcmp(const char *s1, const char *s2);
 void	filter(int ac, char **av, t_stack **stack_a, int check);
 void	check_spaces(char **av);
 char	*join_args(char **av);
