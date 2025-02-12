@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:51:12 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/02 23:25:06 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/12 13:16:12 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	pa(t_stack **stack_a, t_stack **stack_b, int check)
 	t_stack	*tmp;
 
 	tmp = *stack_b;
+	if (stack_is_empty(*stack_b))
+		return ;
 	push_stack(stack_a, (*stack_b)->content);
 	(*stack_b) = (*stack_b)->next;
 	free (tmp);
@@ -53,6 +55,8 @@ void	pb(t_stack **stack_a, t_stack **stack_b, int check)
 	t_stack	*tmp;
 
 	tmp = *stack_a;
+	if (stack_is_empty(*stack_a))
+		return ;
 	push_stack(stack_b, (*stack_a)->content);
 	(*stack_a) = (*stack_a)->next;
 	free (tmp);

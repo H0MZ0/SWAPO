@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/05 14:47:35 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/12 13:25:16 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,5 @@ int	main(int ac, char **av)
 	else
 		ft_putstr("KO\n");
 	free_struct(&stack_a);
+	free_struct(&stack_b);
 }
