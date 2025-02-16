@@ -28,7 +28,8 @@ int	ft_isnum(char **av)
 	while (av[j])
 	{
 		i = 0;
-		if (av[j][i] == '-' || av[j][i] == '+')
+		if ((av[j][i] == '-' || av[j][i] == '+') &&
+			(av[j][i + 1] >= '0' && av[j][i + 1] <= '9'))
 			i++;
 		while (av[j][i])
 		{
