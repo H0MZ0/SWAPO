@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:00:09 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/18 19:52:00 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/02 22:32:52 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_rev_rotate_ab(t_stack **stack)
 	t_stack	*before_last;
 	t_stack	*last;
 
-	if (stack_is_empty(*stack) || (*stack)->next == NULL)
+	if (stack_is_empty(*stack))
 		return ;
 	before_last = *stack;
 	while (before_last->next->next != NULL)

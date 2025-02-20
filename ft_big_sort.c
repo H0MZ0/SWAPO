@@ -14,6 +14,8 @@
 
 int	check_sort(t_stack	*stack_a)
 {
+	if (!stack_a)
+		return (1);
 	while (stack_a->next)
 	{
 		if (stack_a->content > stack_a->next->content)

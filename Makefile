@@ -19,8 +19,10 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-bonus: $(BONUS_OBJ) $(NAME)
-	@$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(BONUS_NAME)
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME) : $(BONUS_OBJ)
+	$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(BONUS_NAME)
 
 clean:
 	@rm -f $(OBJ) $(BONUS_OBJ)
