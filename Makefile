@@ -22,7 +22,7 @@ $(NAME): $(OBJ)
 bonus: $(BONUS_NAME)
 
 $(BONUS_NAME) : $(BONUS_OBJ)
-	$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(BONUS_NAME)
+	@$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(BONUS_NAME)
 
 clean:
 	@rm -f $(OBJ) $(BONUS_OBJ)

@@ -6,7 +6,7 @@
 /*   By: hakader <hakader@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:51 by hakader           #+#    #+#             */
-/*   Updated: 2025/02/12 13:25:16 by hakader          ###   ########.fr       */
+/*   Updated: 2025/02/20 09:52:29 by hakader          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
-		exit (1);
+		exit (0);
 	ac = ac - 1;
 	filter(ac, av, &stack_a, 0);
 	size = stack_size(stack_a);
